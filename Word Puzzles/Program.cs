@@ -6,14 +6,10 @@ using System.Runtime.CompilerServices;
 
 namespace Word_Puzzles
 {
-
     class WordPuzzles{
-
-
         public static void Main(string[] args)
         {
             var path = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..","..",".."));
-            Console.WriteLine(path);
             List<string> toFile = new List<string>();
             var text = File.ReadAllText($@"{path}\ordliste.txt").Split("\t").ToArray();
             text = CreateArray.Create(text);
@@ -40,9 +36,6 @@ namespace Word_Puzzles
                 } while (sub1 != sub2);
                 toFile.Add($@"Number:{i}{(i >= 10 ? null : " ")}{(i >= 100 ? null : " ")} '{toFileAnswer1}_'  '_{toFileAnswer2}' Answer:'{sub1}'");
                 Console.WriteLine($@"Number:{i}{(i >= 10 ? null : " ")}{(i >= 100 ? null : " ")} '{line1}' ends the same as '{line2}' starts. Answer: '{sub1}'");
-                
-               
-
             }
             File.WriteAllLines(@$"{path}\completefile.txt", toFile);
 

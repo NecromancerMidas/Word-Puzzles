@@ -27,20 +27,21 @@ namespace Word_Puzzles
                     sub2 = line2.Substring(j);
                 }
             } while (sub1 != sub2);
+
             Console.WriteLine($@"'{line1}' ends the same as '{line2}' starts. Answer: '{sub1}'");
-              /*  string line = list[Randomer.Randomizer(0, list.Length)];
-                foreach (var listline in list)
-                {
-                    for (int j = 3; j < 5; j++)
-                    {
-                        sub1 = line.Substring(line.Length - j);
-                        sub2 = listline.Substring(j);
-                        if (sub1 == sub2)
-                        {
-                            Console.WriteLine($@"{line} ends the same as {listline} starts. Answer: '{sub1}'");
-                        }
-                    }
-                }*/
+            /*  string line = list[Randomer.Randomizer(0, list.Length)];
+              foreach (var listline in list)
+              {
+                  for (int j = 3; j < 5; j++)
+                  {
+                      sub1 = line.Substring(line.Length - j);
+                      sub2 = listline.Substring(j);
+                      if (sub1 == sub2)
+                      {
+                          Console.WriteLine($@"{line} ends the same as {listline} starts. Answer: '{sub1}'");
+                      }
+                  }
+              }*/
         }
     }
 }
