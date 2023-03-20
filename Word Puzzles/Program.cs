@@ -12,11 +12,10 @@ namespace Word_Puzzles
 
         public static void Main(string[] args)
         {
-            var path = Path.GetFullPath("ordliste.txt");
-            var path2 = Directory.GetCurrentDirectory();
+            var path = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..","..",".."));
             Console.WriteLine(path);
             List<string> toFile = new List<string>();
-            var text = File.ReadAllText(path).Split("\t").ToArray();
+            var text = File.ReadAllText($@"{path}\ordliste.txt").Split("\t").ToArray();
             text = CreateArray.Create(text);
             for (int i = 0; i <= 200; i++)
             {
@@ -45,7 +44,7 @@ namespace Word_Puzzles
                
 
             }
-            File.WriteAllLines(@$"{path2}\completefile.txt", toFile);
+            File.WriteAllLines(@$"{path}\completefile.txt", toFile);
 
         }
 
