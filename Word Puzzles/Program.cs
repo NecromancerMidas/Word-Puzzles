@@ -11,8 +11,8 @@ namespace Word_Puzzles
         {
             var path = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..","..",".."));
             List<string> toFile = new List<string>();
-            var text = File.ReadAllText($@"{path}\ordliste.txt").Split("\t").ToArray();
-            text = CreateArray.Create(text);
+            var read = File.ReadAllText($@"{path}\ordliste.txt").Split("\t").ToArray();
+            var text = CreateArray.Create(read);
             for (int i = 0; i <= 200; i++)
             {
                 string sub1 = String.Empty;
@@ -35,7 +35,7 @@ namespace Word_Puzzles
                     }
                 } while (sub1 != sub2);
                 toFile.Add($@"Number:{i}{(i >= 10 ? null : " ")}{(i >= 100 ? null : " ")} '{toFileAnswer1}_'  '_{toFileAnswer2}' Answer:'{sub1}'");
-                Console.WriteLine($@"Number:{i}{(i >= 10 ? null : " ")}{(i >= 100 ? null : " ")} '{line1}' ends the same as '{line2}' starts. Answer: '{sub1}'");
+                Console.WriteLine($@"Number:{i}{(i >= 10 ? null : " ")}{(i >= 100 ? null : " ")} '{line1}' ends the same as '{line2}' starts. Answer: '{sub1}' Answer is Word: {(read.Contains(sub1) ? "True" : "False")}");
             }
             File.WriteAllLines(@$"{path}\completefile.txt", toFile);
 
